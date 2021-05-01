@@ -1,13 +1,23 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + Vite" />
+  <div>
+   导航路由| <router-link to="/page1">页面1</router-link>|
+   <router-link to="/page2">页面2</router-link>
+   <router-view/>
+  </div>
 </template>
 
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
+<script >
+import Page1 from "./pages/page1.vue";
+import Page2 from "./pages/page2.vue";
+export default {
+  // setup(){
 
-// This starter template is using Vue 3 experimental <script setup> SFCs
-// Check out https://github.com/vuejs/rfcs/blob/script-setup-2/active-rfcs/0000-script-setup.md
+  components: {
+    Page1,
+    Page2,
+  },
+  // }
+};
 </script>
 
 <style>
