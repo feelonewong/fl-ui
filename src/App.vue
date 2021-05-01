@@ -3,16 +3,22 @@
 </template>
 
 <script >
-import Page1 from "./pages/Home.vue";
-import Page2 from "./pages/Doc.vue";
+import { ref, provide } from "vue";
+import {router} from "./router/index";
 export default {
-  // setup(){
-
-  components: {
-    Page1,
-    Page2,
-  },
-  // }
+  setup(){
+    const width = document.documentElement.clientWidth;
+    const menuVisible = ref(width<=500?false:true);
+    provide("menuVisible", menuVisible )
+    router.beforeEach(()=>{
+      if(width<=500){
+        menuVisible.value = false;
+      }
+    })
+    return {
+      menuVisible
+    } 
+  }
 };
 </script>
 
