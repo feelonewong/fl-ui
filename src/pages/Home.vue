@@ -5,7 +5,7 @@
       <h1>FL-UI</h1>
       <h2>一个基于Vue3.0+TypeScript实现的前端UI框架</h2>
       <p class="actions">
-        <a href="https://github.com/feelonewong/fl-ui">GitHub</a>
+        <a href="https://github.com/feelonewong/fl-ui" target="_blank">GitHub</a>
         <router-link to="/doc">开始</router-link>
       </p>
     </div>
