@@ -15,7 +15,7 @@ export default {
 
 <style scoped lang="scss"> 
     $h: 22px;
-    $h2: $h -4px;
+    $h2: $h - 4px;
     button{
         height: $h;
         width: $h*2;
@@ -31,6 +31,10 @@ export default {
         height: $h2;
         width: $h2;
         background: #fff;
-        border-radius: $h2/2;
+        border-radius: $h2 / 2;
+    }
+    button:hover > span {
+        background: red;
+        left: calc(100% - #{$h2} - 2px );
     }
 </style>
