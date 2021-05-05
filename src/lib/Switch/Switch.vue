@@ -43,7 +43,7 @@ span {
   width: $h2;
   background: #fff;
   border-radius: $h2 / 2;
-  transition: left 300ms;
+  transition: all 250ms;
 }
 button.checked{
     background: #409eff;
@@ -55,4 +55,10 @@ button.checked > span {
 button:focus {
     outline: none;
 }
+button:active{
+    > span {width: $h2 + 4px;}
+  }
+  button.checked:active{
+    > span {width: $h2 + 4px; margin-left: -4px;}
+  }
 </style>
