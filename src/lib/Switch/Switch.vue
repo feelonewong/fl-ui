@@ -1,7 +1,7 @@
 <template>
   <div>
-    <button :class="{checked: value}" @click="toggle">
-        <span></span>
+    <button :class="{ checked: value }" @click="toggle">
+      <span></span>
     </button>
   </div>
 </template>
@@ -10,15 +10,15 @@
 <script lang="ts">
 import { ref } from "@vue/reactivity";
 export default {
-  props:{
-      value: Boolean
-  },  
+  props: {
+    value: Boolean,
+  },
   setup(props, context) {
-    const toggle = ()=>{
-        context.emit("update:value", !props.value);
-    }
+    const toggle = () => {
+      context.emit("update:value", !props.value);
+    };
     return {
-      toggle
+      toggle,
     };
   },
 };
@@ -34,6 +34,27 @@ button {
   background: gray;
   border-radius: $h/2;
   position: relative;
+  &.checked {
+    background: #409eff;
+  }
+  &.checked > span {
+    left: calc(100% - #{$h2} - 2px);
+  }
+
+  &:focus {
+    outline: none;
+  }
+  &:active {
+    > span {
+      width: $h2 + 4px;
+    }
+  }
+  &.checked:active {
+    > span {
+      width: $h2 + 4px;
+      margin-left: -4px;
+    }
+  }
 }
 span {
   position: absolute;
@@ -45,20 +66,4 @@ span {
   border-radius: $h2 / 2;
   transition: all 250ms;
 }
-button.checked{
-    background: #409eff;
-}
-button.checked > span {
-  left: calc(100% - #{$h2} - 2px);
-}
-
-button:focus {
-    outline: none;
-}
-button:active{
-    > span {width: $h2 + 4px;}
-  }
-  button.checked:active{
-    > span {width: $h2 + 4px; margin-left: -4px;}
-  }
 </style>
