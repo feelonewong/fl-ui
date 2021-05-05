@@ -20,6 +20,14 @@
     <Button size="small" level="main"> 主要链接按钮 </Button>
     <Button> 普通按钮 </Button>
     <Button size="big" level="danger"> 危险文字按钮 </Button>
+    <h2>示例3:支持disabled类型的button</h2>
+    <!-- 默认支持@click事件 -->
+    <Button :disabled="true"> 主要链接按钮 </Button>
+    <Button> 普通按钮 </Button>
+      <h2>示例3:支持loading类型的button</h2>
+    <!-- 默认支持@click事件 -->
+    <Button :loading="true"> 主要链接按钮 </Button>
+    <Button> 普通按钮 </Button>
   </div>
 </template>
 

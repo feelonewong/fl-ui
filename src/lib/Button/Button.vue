@@ -1,5 +1,6 @@
 <template>
-  <button v-bind="rest" class="fl-button" :class="classes">
+  <button v-bind="rest" class="fl-button" :disabled="disabled" :class="classes">
+      <span class="fl-loadingIndicator" v-if="loading===true"></span>
     <slot />
   </button>
 </template>
@@ -28,6 +29,18 @@ export default {
         return "";
       },
     },
+    disabled: {
+      type: Boolean,
+      default() {
+        return false;
+      },
+    },
+    loading:{
+        type: Boolean,
+        default(){
+            return false;
+        }
+    }
   },
   setup(props, context) {
     //   const {size, onClick, mouseover} = context.attrs的缩写;
@@ -59,6 +72,7 @@ $color: #333;
 $blue: #40a9ff;
 $radius: 4px;
 $red: red;
+$grey: grey;
 .fl-button {
   box-sizing: border-box;
   height: $h;
@@ -73,6 +87,20 @@ $red: red;
   border: 1px solid $border-color;
   border-radius: $radius;
   box-shadow: 0 1px 0 fade-out(black, 0.95);
+  &[disabled] {
+    cursor: not-allowed;
+    color: $grey;
+    &:hover {
+     color: $grey;   
+      border-color: $grey;
+    }
+  }
+  &.fl-theme-link, &.fl-theme-text {
+    &[disabled] {
+      cursor: not-allowed;
+      color: $grey;
+    }
+  }
   &.fl-size-big {
     font-size: 24px;
     height: 48px;
@@ -99,7 +127,7 @@ $red: red;
     color: white;
     &:hover,
     &:focus {
-        color: #ddd;
+      color: #ddd;
       background: darken($red, 10%);
       border-color: darken($red, 10%);
     }
@@ -140,5 +168,20 @@ $red: red;
       background: darken(white, 5%);
     }
   }
+  > .fl-loadingIndicator{
+      width: 14px;
+    height: 14px;
+    display: inline-block;
+    margin-right: 4px;
+    border-radius: 8px; 
+    border-color: $blue $blue $blue transparent;
+    border-style: solid;
+    border-width: 2px;
+    animation: fl-spin 1s infinite linear;
+   
+  }
+  @keyframes fl-spin {
+  0%{transform: rotate(0deg)} 
+  100%{transform: rotate(360deg)} }
 }
 </style>
