@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button :class="{ checked: value }" @click="toggle">
+    <button class="fl-switch" :class="{ 'fl-checked': value }" @click="toggle">
       <span></span>
     </button>
   </div>
@@ -27,17 +27,17 @@ export default {
 <style scoped lang="scss">
 $h: 22px;
 $h2: $h - 4px;
-button {
+.fl-switch {
   height: $h;
   width: $h * 2;
   border: none;
   background: gray;
   border-radius: $h/2;
   position: relative;
-  &.checked {
+  &.fl-checked {
     background: #409eff;
   }
-  &.checked > span {
+  &.fl-checked > span {
     left: calc(100% - #{$h2} - 2px);
   }
 
@@ -49,7 +49,7 @@ button {
       width: $h2 + 4px;
     }
   }
-  &.checked:active {
+  &.fl-checked:active {
     > span {
       width: $h2 + 4px;
       margin-left: -4px;
