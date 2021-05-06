@@ -26,8 +26,8 @@
     <Button> 普通按钮 </Button>
       <h2>示例3:支持loading类型的button</h2>
     <!-- 默认支持@click事件 -->
-    <Button :loading="true"> 主要链接按钮 </Button>
-    <Button> 普通按钮 </Button>
+    <Button :loading="true"> 加载中 </Button>
+    <Button> 加载完毕 </Button>
   </div>
 </template>
 
